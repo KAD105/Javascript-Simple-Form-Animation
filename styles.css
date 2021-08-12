@@ -2,7 +2,7 @@
 body {
     height: 100vh;
     display: flex;
-    background-color: lightblue;
+    background-color: #12c6e6;
     transition: background 0.5s ease;
     position: relative; /* because we want the elemnts all on top of each other in center*/
 }
@@ -32,13 +32,7 @@ body {
     pointer-events: none;
 }
 
-/* .field-name{background: rebeccapurple;}  */
 
-.field-email{background: rgb(11, 24, 216);}
-
-.field-password{background: rgb(18, 224, 11);}
-
-.field-finished{background: rgb(208, 230, 12);}
 
 .field-name i, 
 .field-email i,
