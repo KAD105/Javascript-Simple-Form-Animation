@@ -1,3 +1,5 @@
+
+
 function animatedForm(){
     const arrows = document.querySelectorAll(".fa-arrow-down");
 
@@ -9,24 +11,60 @@ function animatedForm(){
 
             //check validateUser
             if(input.type === "text" && validateUser(input)){
-                console.log("Everything is OK")
+                nextSlide(parent, nextField);
+            }else if(input.type === "email" && validateEmail(input)){
+                nextSlide(parent, nextField)
+            }else if(input.type === "password" && validateUser(input)){
+                nextSlide(parent, nextField)
+            }else{
+                parent.style.animation = "shake 500ms ease ";
             }
+            //get rid of animation
+            parent.addEventListener("animationend", ()=>{
+                parent.style.animation = "";
+            });
         });
     });
 }
 
-animatedForm();
+
+
+
 
 function validateUser(user){
     if(user.value.length < 7){
-        console.log("Not enough characters");
-        error("#d91e31");
+        // console.log("Not enough characters");
+        check("#7a2e28");
     }else{
-        error("#12c6e6");
+        check("#12c6e6");
         return true;
     }
 }
 
-function error(color){
+
+function validateEmail(email){
+    const emailSpellingCheck = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if(emailSpellingCheck.test(email.value)){
+        check("#12c6e6");
+        return true; 
+    }else{
+        check("#7a2e28");
+    }
+}
+
+
+
+function nextSlide(parent, nextField){
+    parent.classList.add("inactive");
+    parent.classList.remove("active");
+    nextField.classList.add("active");
+}
+
+
+function check(color){
     document.body.style.backgroundColor = color;
 }
+
+
+
+animatedForm();
