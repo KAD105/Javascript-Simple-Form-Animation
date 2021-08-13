@@ -1,4 +1,4 @@
-
+//Simple form animation
 
 function animatedForm(){
     const arrows = document.querySelectorAll(".fa-arrow-down");
