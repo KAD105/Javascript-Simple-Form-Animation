@@ -10,15 +10,20 @@ function animatedForm(){
             const nextField = parent.nextElementSibling;
 
             //check validateUser
-            if(input.type === "text" && validateUser(input)){
+                if (input.type === "text" && validateUser(input)) {
+                document.getElementById("notification").innerHTML =
+                  "enter yoour email please";
                 nextSlide(parent, nextField);
-            }else if(input.type === "email" && validateEmail(input)){
-                nextSlide(parent, nextField)
-            }else if(input.type === "password" && validateUser(input)){
-                nextSlide(parent, nextField)
-            }else{
+              } else if (input.type === "email" && validateEmail(input)) {
+                document.getElementById("notification").innerHTML =
+                  "enter yoour password please";
+                nextSlide(parent, nextField);
+              } else if (input.type === "password" && validateUser(input)) {
+                document.getElementById("notification").innerHTML = "finished !";
+                nextSlide(parent, nextField);
+              } else {
                 parent.style.animation = "shake 500ms ease ";
-            }
+              }
             //get rid of animation
             parent.addEventListener("animationend", ()=>{
                 parent.style.animation = "";
