@@ -15,7 +15,12 @@ body {
 
 /*why don't we use position center and justify content here?*/
 
-
+#notification {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .field-name, 
 .field-email,
 .field-password,
